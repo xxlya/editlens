@@ -148,6 +148,16 @@ html[data-language=zh] .research-detail{font-size:18px;line-height:1.95}
 .tool-sources a{width:fit-content;text-underline-offset:3px}
 @media(max-width:600px){.tool-guide>li{padding-left:32px}.tool-guide h3{font-size:17px}.tool-guide p,.tool-guide p span[lang="zh-CN"]{font-size:17px}.tool-sources{font-size:13px}}
 
+/* Keep the full tool guide available without interrupting the article. */
+.methods .tool-disclosure{border:0;margin:17px 0 0;padding:0;font:inherit}
+.tool-disclosure>summary{position:relative;list-style:none;margin:0;padding:0 40px 0 0}
+.tool-disclosure>summary::-webkit-details-marker{display:none}
+.tool-disclosure>summary::after{content:'+';position:absolute;right:3px;top:0;font:300 30px/1.5 var(--sans);color:var(--muted)}
+.tool-disclosure[open]>summary::after{content:'−'}
+.tool-disclosure>summary h2{display:inline;margin:0}
+.tool-disclosure[open]>summary{margin-bottom:25px}
+.tool-disclosure p{padding:0}
+
 
 .gemma-results{font-family:var(--sans,Arial,sans-serif);margin:30px 0}
 .gemma-results figure{margin:28px 0;padding:24px;border:1px solid var(--line,#d9d9ce);background:#faf9f4}
@@ -281,7 +291,7 @@ html[data-language=zh] .research-detail{font-size:18px;line-height:1.95}
 <p class=""><span lang="en">We did not retest the post’s small-network games, zero-feedback demonstrations, or every non-math benchmark. The evidence above concerns the Qwen and Gemma experiments we audited.</span><span lang="zh-CN">我们没有重新测试原文中的小网络游戏、零反馈演示，也没有覆盖所有非数学基准。上面的判断只适用于这次检查的 Qwen 和 Gemma 实验。</span></p>
 </details>
 <div id="alignment" class="evidence-anchor"></div></section>
-<section class="chapter methods" id="methods"><div class="eyebrow"><span lang="en">METHODS & ORIGINAL SOURCES</span><span lang="zh-CN">工具与方法来源</span></div><h2><span lang="en">The ten tools we used</span><span lang="zh-CN">我们用到的十种工具</span></h2>
+<section class="chapter methods" id="methods"><div class="eyebrow"><span lang="en">METHODS & ORIGINAL SOURCES</span><span lang="zh-CN">工具与方法来源</span></div><details class="tool-disclosure"><summary><h2><span lang="en">The ten tools we used</span><span lang="zh-CN">我们用到的十种工具</span></h2></summary>
 <p class=""><span lang="en">Each entry links to our findings above and to the method papers or authors’ posts. <strong class="tool-name">SVD</strong> is standard linear algebra; our <strong class="tool-name">activation ranking</strong> is a task-specific comparison, so those entries link to background and our analysis respectively.</span><span lang="zh-CN">下面列出工具的用途、对应结果，以及方法论文或作者博客。<strong class="tool-name">SVD</strong> 属于基础线性代数；<strong class="tool-name">激活排序</strong>则是我们为这次实验设计的比较方法，因此这两项分别链接到基础讲解和本研究的分析记录。</span></p>
 <ol class="tool-guide">
 <li><h3><span lang="en"><strong class="tool-name">Weight-difference SVD</strong></span><span lang="zh-CN"><strong class="tool-name">权重差分 SVD</strong></span></h3><p><span lang="en">Compare weights before and after editing to find the main directions and strength of the change.</span><span lang="zh-CN">比较编辑前后的权重，找出改动主要沿哪些方向、幅度多大。</span></p><div class="tool-sources">
@@ -339,7 +349,7 @@ html[data-language=zh] .research-detail{font-size:18px;line-height:1.95}
 <a class="tool-finding-link" href="#gemma-tool-results"><span lang="en">Gemma findings ↑</span><span lang="zh-CN">Gemma 结果 ↑</span></a>
 <a href="https://www.neelnanda.io/mechanistic-interpretability/attribution-patching"><span lang="en">Neel Nanda · <strong class="tool-name">Attribution Patching</strong></span><span lang="zh-CN">Neel Nanda · <strong class="tool-name">Attribution Patching</strong> 原文</span> ↗</a>
 </div></li>
-</ol>
+</ol></details>
 </section><section class="chapter references" id="references"><div class="eyebrow"><span lang="en">SOURCES & FURTHER READING</span><span lang="zh-CN">资料与延伸阅读</span></div><h2><span lang="en">Follow the evidence</span><span lang="zh-CN">追溯证据</span></h2><ol>
 <li id="ref1"><a href="https://rikiyat.github.io/blog/weight-space-programming/">Takehi, Teoh, Zhang & Khattab. Sparks of Weight-Space Programming. ↗</a><small>MIT CSAIL · 2 November 2026</small></li>
 <li id="ref2"><a href="https://github.com/assassin808/behavioral-lens-fast/blob/fdf06a6dab318413ae48ac32d2b8bf3da78f869c/notes/screen/table.json">Behavioral controls: original screening table. ↗</a><small>Original generation summaries and matched stopping controls</small></li>
